@@ -72,9 +72,8 @@ namespace lesson6
                     e.SortDirection = SortDirection.Descending;
 
                     var s = from stu in conn.Students
+                             orderby e.SortExpression descending
                              select stu;
-
-                    s = s.OrderByDescending(x => e.SortExpression);
 
                     grdStudents.DataSource = s.ToList();
                 }
@@ -83,9 +82,8 @@ namespace lesson6
                     e.SortDirection = SortDirection.Ascending;
 
                     var s = from stu in conn.Students
+                             orderby e.SortExpression ascending
                              select stu;
-
-                    s = s.OrderBy(x => e.SortExpression);
 
                     grdStudents.DataSource = s.ToList();
                 }
